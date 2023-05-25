@@ -4,7 +4,9 @@
   "description": "This project is using typescript and inversify for implementing dependency injection (DI)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build tsconfig.json",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",

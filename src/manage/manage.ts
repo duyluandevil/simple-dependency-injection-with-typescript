@@ -3,8 +3,10 @@ import { Token } from '../token';
 import { IUser, User, UserType } from '../user/user';
 
 export interface IManage {
+        list(): void;
         createUser(userInput: UserType): User;
         findUser(id: number): User;
+        showInfo(user: User): void;
 }
 
 @injectable()
@@ -21,8 +23,7 @@ export class Manage implements IManage {
                 const user = this._listUsers.find(user => user.id === id);
 
                 isExist = user === undefined ? false : true;
-
-                return isExist
+                return isExist;
         }
 
         createUser(userInput: UserType): User {
@@ -33,7 +34,7 @@ export class Manage implements IManage {
                 } = userInput;
 
                 const isExist = this.isExistUser(id);
-                if (isExist) return;
+                if (isExist) throw new Error('user is exist');
 
                 const user = this._user.create(
                         id,
@@ -42,19 +43,24 @@ export class Manage implements IManage {
                 )
                 this._listUsers.push(user);
 
-                console.log({
-                        length: this._listUsers.length
-                })
-
                 return user;
+        }
+
+        list() {
+                console.log({
+                        users: this._listUsers
+                })
         }
 
         findUser(id: number): User {
                 const isExist = this.isExistUser(id);
-                if (isExist) return;
+                if (!isExist) throw new Error('user is not exist');
 
                 const user = this._listUsers.find(user => user.id === id);
                 return user;
         }
 
+        showInfo(user: User): void {
+                user.show();
+        }
 }

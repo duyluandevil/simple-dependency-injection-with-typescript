@@ -10,6 +10,7 @@ export type UserType = {
 
 export interface IUser {
         create(id: number, position: string, name: string): User;
+        show(): void;
 }
 
 @injectable()
@@ -41,6 +42,13 @@ export class User implements IUser {
                 user.position = position;
 
                 return user;
+        }
+
+        show(){
+                console.log({
+                        name: this._name,
+                        position: this._position
+                })
         }
 
 }
