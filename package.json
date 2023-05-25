@@ -1,0 +1,27 @@
+{
+  "name": "simple-dependency-injection-with-typescript",
+  "version": "1.0.0",
+  "description": "This project is using typescript and inversify for implementing dependency injection (DI)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duyluandevil/simple-dependency-injection-with-typescript.git"
+  },
+  "keywords": [],
+  "author": "dev.luanpham@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duyluandevil/simple-dependency-injection-with-typescript/issues"
+  },
+  "homepage": "https://github.com/duyluandevil/simple-dependency-injection-with-typescript#readme",
+  "dependencies": {
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.3"
+  }
+}
